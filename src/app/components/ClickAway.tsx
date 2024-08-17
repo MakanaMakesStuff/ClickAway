@@ -1,11 +1,17 @@
 import { cloneElement, ReactElement, useEffect, useRef } from "react"
 
+/**
+ * Detects when a user clicks away from the target element
+ * @param children - The target of our swipes
+ * @param callback - The function called after each click event
+ * @returns
+ */
 export default function ClickAway({
   children,
   callback,
 }: {
   children: ReactElement
-  callback?: (...args: any) => void
+  callback?: (inside: boolean) => void
 }) {
   const child = useRef<HTMLElement>(null)
 

@@ -1,6 +1,17 @@
-import { ReactNode, useCallback, useEffect, useRef } from "react"
+import { ReactNode, useCallback, useEffect } from "react"
 
 type Directions = "left" | "right" | "up" | "down"
+
+/**
+ * Detects when a user swipes a particular direction(s)
+ * @param children - The target of our swipes
+ * @param callback - The function called at the end of a swipe event
+ * @param threshold - The amount of pixels a touch has to travel before it is registered as a swipe
+ * @param useWindow - This will make the device window the target of our swipe logic. Leave as false if swipes should be constrained to the child element
+ * @param direction - An array of swipe directions that can trigger our callback function. Defaults to just "left" swipe.
+ * @param className - Will pass a className to our wrapping div. A wrapper is only used if useWindow is false.
+ * @returns
+ */
 export default function SwipeAway({
   children,
   callback,
